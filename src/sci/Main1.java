@@ -80,17 +80,19 @@ public class Main1 {
         }
 
 
-        System.out.println("Selectati optiunea dorita din meniul urmator: ");
-        System.out.println("1-Adaugati carti de la tastatura: ");
-        System.out.println("2-Adaugati carti din fisier: ");
-        System.out.println("3-Afisati cartile din colectie: ");
-        System.out.println("4-Stergeti cartile din colectie cu un anumit nume: ");
-        System.out.println("5-Stergeti cartile din colectie cu un anumit nr de pagini: ");
-        System.out.println("0-Iesiti din executie. ");
-        Scanner optiune2 = new Scanner(System.in);
-        int nr = optiune2.nextInt();
+      
+        Scanner optiune2 ;
+        int nr = -1;
         do {
-
+              System.out.println("Selectati optiunea dorita din meniul urmator: ");
+               System.out.println("1-Adaugati carti de la tastatura: ");
+            System.out.println("2-Adaugati carti din fisier: ");
+            System.out.println("3-Afisati cartile din colectie: ");
+            System.out.println("4-Stergeti cartile din colectie cu un anumit nume: ");
+            System.out.println("5-Stergeti cartile din colectie cu un anumit nr de pagini: ");
+            System.out.println("0-Iesiti din executie. ");
+            optiune2 = new Scanner(System.in);
+            nr = optiune2.nextInt();
             if (nr==1)
             {
                 System.out.println("adaugam carti de la tastatura: ");
@@ -127,16 +129,6 @@ public class Main1 {
                 int myNr = nrPagini.nextInt();
                 librarie.removeAllBooksWithPages(myNr);
             }
-            System.out.println("Selectati optiunea dorita din meniul urmator: ");
-            System.out.println("1-Adaugati carti de la tastatura: ");
-            System.out.println("2-Adaugati carti din fisier: ");
-            System.out.println("3-Afisati cartile din colectie: ");
-            System.out.println("4-Stergeti cartile din colectie cu un anumit nume: ");
-            System.out.println("5-Stergeti cartile din colectie cu un anumit nr de pagini: ");
-            System.out.println("0-Iesiti din executie. ");
-            Scanner optiune3 = new Scanner(System.in);
-            nr = optiune3.nextInt();
-
         } while (nr==0);
 
 
