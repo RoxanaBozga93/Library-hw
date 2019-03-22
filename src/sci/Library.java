@@ -1,5 +1,7 @@
 package sci;
 
+import org.apache.log4j.Logger;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -7,15 +9,20 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-public class Library {
+public class Library implements LibInterface{
 
+    private static final Logger log = Logger.getLogger(Library.class);
+
+    //private List<? extends Book> listOfBooks;
+    //nu am reusit sa implementez metoda addBook cu generice, asa ca am renuntat la generice
     private List<Book> listOfBooks;
+
 
     public Library(){
         listOfBooks = new ArrayList<>();
     }
 
-    public List<Book> getListOfBooks() {
+    public List<? extends Book> getListOfBooks() {
         return this.listOfBooks;
     }
 
@@ -24,11 +31,12 @@ public class Library {
     }
 
     public void addBook(Book carte){
+        log.info("adding book");
         listOfBooks.add(carte);
     }
 
     public void removeAllBooksWithName(String numeCarte){
-        Iterator<Book> it = listOfBooks.iterator();
+        Iterator<? extends Book> it = listOfBooks.iterator();
         Book book;
         while(it.hasNext()){
             book = it.next();
@@ -39,7 +47,7 @@ public class Library {
     }
 
     public void removeAllBooksWithPages(int nrPag){
-        Iterator<Book> it = listOfBooks.iterator();
+        Iterator<? extends Book> it = listOfBooks.iterator();
         Book book;
         while(it.hasNext()){
             book = it.next();
@@ -100,7 +108,8 @@ public class Library {
             sc.close();
         }
         catch (FileNotFoundException e) {
-            e.printStackTrace();
+            log.error(e.getStackTrace());
+           // e.printStackTrace();
         }
     }
 

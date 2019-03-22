@@ -137,7 +137,7 @@ public class Main1 {
             Scanner optiune3 = new Scanner(System.in);
             nr = optiune3.nextInt();
 
-        } while (nr==0);
+        } while (nr!=0);
 
 
 
